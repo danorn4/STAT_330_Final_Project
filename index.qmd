@@ -69,6 +69,6 @@ Details are in the [AI-use record](ai-use.qmd).
 - **Data:**
   - Cortez, P. (2008). *Student Performance* \[Dataset\]. UCI Machine Learning Repository. <https://doi.org/10.24432/C5TG7T>
   - Cortez, P., & Silva, A. (2008). Using data mining to predict secondary school student performance. In *Proceedings of the 5th Future Business Technology Conference (FUBUTEC 2008)*. EUROSIS.
-- **Repository:** Replace with your repository URL.
+- **Repository:** [GitHub repo](https://github.com/danorn4/STAT_330_Final_Project)
 - [AI-use record](ai-use.qmd)
 - **Other sources:** Cite package documentation, articles, code, and other sources that materially informed the work.
