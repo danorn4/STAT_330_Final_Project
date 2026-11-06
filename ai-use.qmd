@@ -1,0 +1,60 @@
+---
+title: "AI Use and Verification"
+description: "A concise record of AI-supported work on this project."
+author: "Alyssa Bair, Sarah Cerny, Daniel Ornelas"
+---
+
+This page is a work log, not a second report. Short bullets are welcome. It is separate from the final case study and does not count toward the 750 to 1,000 word range.
+
+## Starting point
+
+**AI system and date:** Replace.
+
+**Before using AI for the required extension, briefly state your question, course-based core model, baseline result, and the specific limitation or opportunity you wanted to address.**
+
+**Question:** Among students in a Portuguese-language secondary course, how is weekly study time associated with the final grade, after accounting for past class failures and absences?
+
+**Course-based core model:** Multiple linear regression, `G3 ~ studytime + failures + absences`, with LASSO (selection and shrinkage) and diagnostics/robustness planned as our two course-method families.
+
+**Baseline result:** Each one-band increase in weekly study time is associated with about 0.75 points higher G3 (95% CI 0.48 to 1.03). Each past failure is associated with about 2.0 points lower G3. Absences show no clear association. R² is about 0.19 and residual SE is about 2.9 points.
+
+**Limitation / opportunity:** The residuals are strongly left-skewed because of 15 students with G3 = 0, and dropping them lowers the study-time coefficient from about 0.75 to 0.59. Study time is also entered as a numeric 1 to 4 score, which assumes equal steps between bands, and the model explains little variance. We wanted to test whether a more flexible model finds structure the linear model misses.
+
+## Substantive prompts
+
+Paste the exact prompts that shaped the extension. Include the customized extension-selection prompt from the checkpoint and any important implementation follow-ups. Delete unused prompt blocks.
+
+> I am creating a regression case study in R and Quarto. My question is: among students in a Portuguese-language secondary course, how is weekly study time associated with final grade, after accounting for past class failures and absences? The response is G3, the final grade, a numeric score from 0 to 20. The main predictors are studytime (four ordinal bands, entered as numeric 1 to 4), failures (number of past class failures), and absences (count). Other candidate predictors are higher, Dalc, Walc, goout, Medu, Fedu, schoolsup, famsup, school, sex, and age. I am deliberately excluding G1 and G2. My course-based core model is multiple linear regression, G3 \~ studytime + failures + absences, and I plan to add LASSO and influence/robustness diagnostics. My main result so far is that each one-band increase in study time is associated with about 0.75 points higher G3 (95% CI 0.48 to 1.03), each past failure with about 2.0 points lower G3, absences show no clear association, and R-squared is about 0.19. I found this limitation or opportunity: the residuals are strongly left-skewed because 15 students have G3 = 0, and dropping them lowers the study-time coefficient from about 0.75 to 0.59. Study time is also treated as numeric, and the model explains little variance. Suggest three feasible extensions that keep the core analysis connected to regression methods taught in my class. One option may be a model not taught in class used as a comparator. For each, explain how it strengthens the same research question, how its result would enter the final case study, the implementation steps, and two ways I could verify it. Do not choose for me.
+
+## Selected extension and verification plan
+
+**Selected extension:** We will fit a random forest, a type of model we didn't learn in class, and compare it to our regular linear regression and our LASSO model. All three models predict the final grade (G3) using the same variables, and we leave out G1 and G2. We will judge them by how far off their predictions are on average (cross-validated RMSE, where lower is better). We will also check how much the random forest relies on study time (permutation importance) and plot how its predicted grade changes as study time goes up (partial dependence plot).
+
+**Why it fits:** Our linear model only explains about 19% of grades, and the 15 students with a grade of 0 throw it off. The random forest can pick up patterns that a straight-line model misses. Comparing the two shows whether the study time result holds up with a more flexible model. The comparison table and the plot will go in our final case study, and the regression models stay the main part of the project.
+
+**Planned check 1:** We will compare the random forest's error to a model that just predicts the average grade for everyone and to our linear model. We will also calculate the error by hand for one fold of the data to make sure the code is computing it correctly.
+
+**Planned check 2:** We will make fake data where we know study time adds about 0.75 points per band, then see whether the random forest's plot and importance score find that effect. We will also check whether the random forest ranks the variables in a similar order to our LASSO results, and read the `ranger` package documentation to confirm we understand how importance is calculated.
+
+## My decisions
+
+- **Accepted:** What useful advice did you use?
+- **Changed:** What did you adapt to fit your data or goals?
+- **Rejected or corrected:** What advice was unsuitable, unnecessary, or wrong?
+
+**Connection to the final case study:** Identify where the extension's method and result appear on the final page and how they strengthen the course-based analysis.
+
+## Independent verification
+
+1.  **Check and result:** Replace with an official source, diagnostic, simulation, manual calculation, comparison with a known method, or another suitable check.
+2.  **Check and result:** Replace with a different check and what you learned.
+
+Link or cite verification sources where appropriate. A second AI response does not count as independent verification.
+
+## Remaining limitation
+
+**State one important uncertainty, failure mode, or limitation that remains.**
+
+## Other AI use, if any
+
+**Briefly disclose earlier debugging, proofreading, or other AI assistance. Write “None” if there was no other use.**

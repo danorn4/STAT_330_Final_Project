@@ -1,0 +1,107 @@
+[
+  {
+    "objectID": "ai-use.html",
+    "href": "ai-use.html",
+    "title": "AI Use and Verification",
+    "section": "",
+    "text": "This page is a work log, not a second report. Short bullets are welcome. It is separate from the final case study and does not count toward the 750 to 1,000 word range."
+  },
+  {
+    "objectID": "ai-use.html#starting-point",
+    "href": "ai-use.html#starting-point",
+    "title": "AI Use and Verification",
+    "section": "Starting point",
+    "text": "Starting point\nAI system and date: Replace.\nBefore using AI for the required extension, briefly state your question, course-based core model, baseline result, and the specific limitation or opportunity you wanted to address.\nQuestion: Among students in a Portuguese-language secondary course, how is weekly study time associated with the final grade, after accounting for past class failures and absences?\nCourse-based core model: Multiple linear regression, G3 ~ studytime + failures + absences, with LASSO (selection and shrinkage) and diagnostics/robustness planned as our two course-method families.\nBaseline result: Each one-band increase in weekly study time is associated with about 0.75 points higher G3 (95% CI 0.48 to 1.03). Each past failure is associated with about 2.0 points lower G3. Absences show no clear association. R² is about 0.19 and residual SE is about 2.9 points.\nLimitation / opportunity: The residuals are strongly left-skewed because of 15 students with G3 = 0, and dropping them lowers the study-time coefficient from about 0.75 to 0.59. Study time is also entered as a numeric 1 to 4 score, which assumes equal steps between bands, and the model explains little variance. We wanted to test whether a more flexible model finds structure the linear model misses."
+  },
+  {
+    "objectID": "ai-use.html#substantive-prompts",
+    "href": "ai-use.html#substantive-prompts",
+    "title": "AI Use and Verification",
+    "section": "Substantive prompts",
+    "text": "Substantive prompts\nPaste the exact prompts that shaped the extension. Include the customized extension-selection prompt from the checkpoint and any important implementation follow-ups. Delete unused prompt blocks.\n\nI am creating a regression case study in R and Quarto. My question is: among students in a Portuguese-language secondary course, how is weekly study time associated with final grade, after accounting for past class failures and absences? The response is G3, the final grade, a numeric score from 0 to 20. The main predictors are studytime (four ordinal bands, entered as numeric 1 to 4), failures (number of past class failures), and absences (count). Other candidate predictors are higher, Dalc, Walc, goout, Medu, Fedu, schoolsup, famsup, school, sex, and age. I am deliberately excluding G1 and G2. My course-based core model is multiple linear regression, G3 ~ studytime + failures + absences, and I plan to add LASSO and influence/robustness diagnostics. My main result so far is that each one-band increase in study time is associated with about 0.75 points higher G3 (95% CI 0.48 to 1.03), each past failure with about 2.0 points lower G3, absences show no clear association, and R-squared is about 0.19. I found this limitation or opportunity: the residuals are strongly left-skewed because 15 students have G3 = 0, and dropping them lowers the study-time coefficient from about 0.75 to 0.59. Study time is also treated as numeric, and the model explains little variance. Suggest three feasible extensions that keep the core analysis connected to regression methods taught in my class. One option may be a model not taught in class used as a comparator. For each, explain how it strengthens the same research question, how its result would enter the final case study, the implementation steps, and two ways I could verify it. Do not choose for me."
+  },
+  {
+    "objectID": "ai-use.html#my-decisions",
+    "href": "ai-use.html#my-decisions",
+    "title": "AI Use and Verification",
+    "section": "My decisions",
+    "text": "My decisions\n\nAccepted: What useful advice did you use?\nChanged: What did you adapt to fit your data or goals?\nRejected or corrected: What advice was unsuitable, unnecessary, or wrong?\n\nConnection to the final case study: Identify where the extension’s method and result appear on the final page and how they strengthen the course-based analysis."
+  },
+  {
+    "objectID": "ai-use.html#independent-verification",
+    "href": "ai-use.html#independent-verification",
+    "title": "AI Use and Verification",
+    "section": "Independent verification",
+    "text": "Independent verification\n\nCheck and result: Replace with an official source, diagnostic, simulation, manual calculation, comparison with a known method, or another suitable check.\nCheck and result: Replace with a different check and what you learned.\n\nLink or cite verification sources where appropriate. A second AI response does not count as independent verification."
+  },
+  {
+    "objectID": "ai-use.html#remaining-limitation",
+    "href": "ai-use.html#remaining-limitation",
+    "title": "AI Use and Verification",
+    "section": "Remaining limitation",
+    "text": "Remaining limitation\nState one important uncertainty, failure mode, or limitation that remains."
+  },
+  {
+    "objectID": "ai-use.html#other-ai-use-if-any",
+    "href": "ai-use.html#other-ai-use-if-any",
+    "title": "AI Use and Verification",
+    "section": "Other AI use, if any",
+    "text": "Other AI use, if any\nBriefly disclose earlier debugging, proofreading, or other AI assistance. Write “None” if there was no other use."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Does Study Time Matter? Predicting Final Grades in Portuguese Secondary Schools",
+    "section": "",
+    "text": "Narrative word count: Replace with a number from 750 to 1,000."
+  },
+  {
+    "objectID": "index.html#the-question",
+    "href": "index.html#the-question",
+    "title": "Does Study Time Matter? Predicting Final Grades in Portuguese Secondary Schools",
+    "section": "The question",
+    "text": "The question\nStudy time is one of the few influences on grades that students, families, and schools can actually change, while factors like past failures or family background are largely fixed. Knowing how much study time is associated with grades, compared with those fixed factors, helps school counselors, teachers, and families decide whether encouraging study habits is worth the effort. Our question is: among students in a Portuguese-language secondary course, how is weekly study time associated with the final grade, after accounting for past class failures and absences?\nWe use the Student Performance dataset from the UCI Machine Learning Repository (Cortez, 2008), where each row is one student in the Portuguese-language course at one of two secondary schools in Portugal (649 students). The response is the final grade (G3), a score from 0 to 20. The main predictors are weekly study time, past class failures, and absences, and we also consider other background and behavior variables such as alcohol use, parents’ education, and plans for higher education. We deliberately leave out the first- and second-period grades because they are nearly the same measurement as the final grade and would hide the role of things schools can act on. One important limitation is that study time is self-reported in four broad bands rather than hours, so our results describe patterns across groups of students at these two schools, not precise effects or individual students."
+  },
+  {
+    "objectID": "index.html#what-the-baseline-shows",
+    "href": "index.html#what-the-baseline-shows",
+    "title": "Does Study Time Matter? Predicting Final Grades in Portuguese Secondary Schools",
+    "section": "What the baseline shows",
+    "text": "What the baseline shows\nDescribe and justify a simple course-based baseline regression model. Interpret the result that best establishes the rest of the story, including its direction, magnitude, scale, and uncertainty. Explain one limitation or unresolved pattern that motivates deeper analysis.\n\n\nShow code\n# Load packages and data, document preparation, and fit the baseline.\n\n\n\n\nShow code\n# Show a primary figure or table only if it helps answer the question."
+  },
+  {
+    "objectID": "index.html#going-beyond-the-baseline",
+    "href": "index.html#going-beyond-the-baseline",
+    "title": "Does Study Time Matter? Predicting Final Grades in Portuguese Secondary Schools",
+    "section": "Going beyond the baseline",
+    "text": "Going beyond the baseline\nUse two STAT 330 method families. Give each part a descriptive heading that states the question or finding, not an assignment label. Explain why you chose each method, how you checked it, and what it adds to the answer.\n\nReplace with a question or finding\nPresent one method and its most useful evidence.\n\n\nShow code\n# Analysis code for this part.\n\n\n\n\nReplace with another question or finding\nPresent a method from a different family and its most useful evidence. Combine this with the preceding subsection if that creates a clearer story.\n\n\nShow code\n# Analysis code for this part."
+  },
+  {
+    "objectID": "index.html#a-new-direction-with-ai",
+    "href": "index.html#a-new-direction-with-ai",
+    "title": "Does Study Time Matter? Predicting Final Grades in Portuguese Secondary Schools",
+    "section": "A new direction with AI",
+    "text": "A new direction with AI\nExplain the need revealed by your preliminary course-based work, the extension you implemented with AI support, and what it contributes to the same research question. Show its substantive result on this page and summarize your independent checks. If the extension is an untaught comparator, evaluate it against the core course-based model. Link to the AI-use record instead of placing a transcript here.\n\n\nShow code\n# Implement the verified extension or show its most useful result.\n\n\nDetails are in the AI-use record."
+  },
+  {
+    "objectID": "index.html#what-this-means",
+    "href": "index.html#what-this-means",
+    "title": "Does Study Time Matter? Predicting Final Grades in Portuguese Secondary Schools",
+    "section": "What this means",
+    "text": "What this means\nAnswer the research question directly. Distinguish statistical evidence from practical importance, state the most consequential limitations, and suggest one sensible next step. Avoid causal claims unless the study design supports them."
+  },
+  {
+    "objectID": "index.html#data-and-code",
+    "href": "index.html#data-and-code",
+    "title": "Does Study Time Matter? Predicting Final Grades in Portuguese Secondary Schools",
+    "section": "Data and code",
+    "text": "Data and code\n\nData:\n\nCortez, P. (2008). Student Performance [Dataset]. UCI Machine Learning Repository. https://doi.org/10.24432/C5TG7T\nCortez, P., & Silva, A. (2008). Using data mining to predict secondary school student performance. In Proceedings of the 5th Future Business Technology Conference (FUBUTEC 2008). EUROSIS.\n\nRepository: Replace with your repository URL.\nAI-use record\nOther sources: Cite package documentation, articles, code, and other sources that materially informed the work."
+  },
+  {
+    "objectID": "ai-use.html#selected-extension-and-verification-plan",
+    "href": "ai-use.html#selected-extension-and-verification-plan",
+    "title": "AI Use and Verification",
+    "section": "Selected extension and verification plan",
+    "text": "Selected extension and verification plan\nSelected extension: We will fit a random forest, a type of model we didn’t learn in class, and compare it to our regular linear regression and our LASSO model. All three models predict the final grade (G3) using the same variables, and we leave out G1 and G2. We will judge them by how far off their predictions are on average (cross-validated RMSE, where lower is better). We will also check how much the random forest relies on study time (permutation importance) and plot how its predicted grade changes as study time goes up (partial dependence plot).\nWhy it fits: Our linear model only explains about 19% of grades, and the 15 students with a grade of 0 throw it off. The random forest can pick up patterns that a straight-line model misses. Comparing the two shows whether the study time result holds up with a more flexible model. The comparison table and the plot will go in our final case study, and the regression models stay the main part of the project.\nPlanned check 1: We will compare the random forest’s error to a model that just predicts the average grade for everyone and to our linear model. We will also calculate the error by hand for one fold of the data to make sure the code is computing it correctly.\nPlanned check 2: We will make fake data where we know study time adds about 0.75 points per band, then see whether the random forest’s plot and importance score find that effect. We will also check whether the random forest ranks the variables in a similar order to our LASSO results, and read the ranger package documentation to confirm we understand how importance is calculated."
+  }
+]
